@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+c1 = Company.create(total_stock: 5, pro_deal: true, name: 'Santa Cruz', location: 'California')
+c2 = Company.create(total_stock: 15, pro_deal: false, name: 'Trek', location: 'Wisconsin')
+c3 = Company.create(total_stock: 25, pro_deal: true, name: 'Niner', location: 'Colorado')
