@@ -1,0 +1,6 @@
+<h1><%= @company.name %></h1>
+  <% @bikes.each do |bike| %>
+  <h3><%= bike.name %></h3>
+  <p><%= bike.front_travel %></p>
+  <p><%= bike.full_suspension %></p>
+  <% end %>

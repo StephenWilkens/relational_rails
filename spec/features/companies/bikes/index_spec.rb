@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Companies index page' do
+describe 'Company bikes index page' do
   before do
     @c1 = Company.create(total_stock: 5, pro_deal: true, name: 'Santa Cruz', location: 'California')
     @c2 = Company.create(total_stock: 15, pro_deal: false, name: 'Trek', location: 'Wisconsin')
@@ -19,11 +19,17 @@ describe 'Companies index page' do
     @rip = @c3.bikes.create!(name: 'RIP', full_suspension: true, front_travel: 150)
   end
 
-  it 'shows the name of each company' do
-    visit '/companies'
-
-    expect(page).to have_content(@c1.name)
-    expect(page).to have_content(@c2.name)
-    expect(page).to have_content(@c3.name)
+  it 'can see each bike that is associated with the given company id and show those childrens attributes' do
+    visit "companies/#{@c1.id}/bikes"
+save_and_open_page
+    expect(page).to have_content(@chameleon.name)
+    expect(page).to have_content(@chameleon.full_suspension)
+    expect(page).to have_content(@chameleon.front_travel)
+    expect(page).to have_content(@v10.name)
+    expect(page).to have_content(@v10.full_suspension)
+    expect(page).to have_content(@v10.front_travel)
+    expect(page).to have_content(@tallboy.name)
+    expect(page).to have_content(@tallboy.full_suspension)
+    expect(page).to have_content(@tallboy.front_travel)
   end
 end
