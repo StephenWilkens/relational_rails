@@ -1,5 +1,6 @@
+<h1>Companies</h1>
 <ul>
-  <% @companies.each do |company| %>
-  <li><%= company.name %></li>
+  <% @companies.order_by_last_created.each do |company| %>
+  <li><%= company.name %> Created at:<%= company.created_at %></li>
   <% end %>
-</ul>
+</ul> 
