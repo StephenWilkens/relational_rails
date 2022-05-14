@@ -28,4 +28,10 @@ describe 'Companies index page' do
     expect(page).to have_content(@c3.name)
     expect(page).to have_content(@c3.created_at)
   end
+
+  it 'has a link to the bike index page' do
+    visit '/companies'
+    click_link('Bikes')
+    expect(current_path).to eq('/bikes')
+  end
 end

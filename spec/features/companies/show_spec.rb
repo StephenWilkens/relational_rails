@@ -28,4 +28,10 @@ describe 'Companies show page' do
     expect(page).to have_content(@c1.pro_deal)
     expect(page).to have_content(@c1.bikes.count)
   end
+
+  it 'has a link to the bike index page' do
+    visit "/companies/#{@c1.id}"
+    click_link('Bikes')
+    expect(current_path).to eq('/bikes')
+  end
 end
