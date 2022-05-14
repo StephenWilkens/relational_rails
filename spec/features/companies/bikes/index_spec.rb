@@ -21,7 +21,6 @@ describe 'Company bikes index page' do
 
   it 'can see each bike that is associated with the given company id and show those childrens attributes' do
     visit "companies/#{@c1.id}/bikes"
-save_and_open_page
     expect(page).to have_content(@chameleon.name)
     expect(page).to have_content(@chameleon.full_suspension)
     expect(page).to have_content(@chameleon.front_travel)
