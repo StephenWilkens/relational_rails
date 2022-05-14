@@ -19,11 +19,14 @@ describe 'Companies index page' do
     @rip = @c3.bikes.create!(name: 'RIP', full_suspension: true, front_travel: 150)
   end
 
-  it 'shows the name of each company' do
+  it 'shows the name of each company in order of creation with creation date next to the company name' do
     visit '/companies'
-
+    save_and_open_page
     expect(page).to have_content(@c1.name)
+    expect(page).to have_content(@c1.created_at)
     expect(page).to have_content(@c2.name)
+    expect(page).to have_content(@c2.created_at)
     expect(page).to have_content(@c3.name)
+    expect(page).to have_content(@c3.created_at)
   end
 end
