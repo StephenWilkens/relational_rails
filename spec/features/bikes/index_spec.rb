@@ -37,4 +37,11 @@ describe 'Bikes index page' do
     click_link('Bikes')
     expect(current_path).to eq('/bikes')
   end
+
+   it 'has a link to the companies index page' do
+    visit "/bikes"
+    click_link('Companies')
+    expect(current_path).to eq('/companies')
+  end
+
 end
