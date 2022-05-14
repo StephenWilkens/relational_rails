@@ -41,4 +41,9 @@ describe 'Companies show page' do
     expect(current_path).to eq('/companies')
   end
 
+it 'has a link to the company bikes index page' do
+    visit "/companies/#{@c1.id}"
+    click_link('Company Bikes')
+    expect(current_path).to eq("/companies/#{@c1.id}/bikes")
+  end
 end
