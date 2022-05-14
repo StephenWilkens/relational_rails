@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'Companies index page' do
-  before do
+  before :each do
     @c1 = Company.create(total_stock: 5, pro_deal: true, name: 'Santa Cruz', location: 'California')
     @c2 = Company.create(total_stock: 15, pro_deal: false, name: 'Trek', location: 'Wisconsin')
     @c3 = Company.create(total_stock: 25, pro_deal: true, name: 'Niner', location: 'Colorado')
@@ -21,7 +21,6 @@ describe 'Companies index page' do
 
   it 'shows the name of each company in order of creation with creation date next to the company name' do
     visit '/companies'
-    save_and_open_page
     expect(page).to have_content(@c1.name)
     expect(page).to have_content(@c1.created_at)
     expect(page).to have_content(@c2.name)
