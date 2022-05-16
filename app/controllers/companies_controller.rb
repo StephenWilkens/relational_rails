@@ -12,7 +12,12 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    new_comp = Company.create(name: params[:name])
+    new_comp = Company.create(company_params)
     redirect_to "/companies/#{new_comp.id}"
+  end
+
+  private
+  def company_params
+    params.permit(:name, :location, :total_stock, :pro_deal, :created_at, :updated_at, :company_id)
   end
 end
