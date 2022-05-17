@@ -1,6 +1,7 @@
 <%= link_to "Bikes", "/bikes" %>
 <%= link_to "Companies", "/companies" %>
 <%= link_to "Company Bikes", "/companies/#{@company.id}/bikes" %>
+<%= link_to "Edit", "/companies/#{@company.id}/edit" %>
 
 <h1><%= @company.name %></h1>
 <p>Location: <%= @company.location %></p>
