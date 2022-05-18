@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post '/companies', to: 'companies#create'
   get '/companies/:id/edit', to: 'companies#edit'
   patch '/companies/:id/', to: 'companies#update'
+  delete '/companies/:id', to: 'companies#destroy'
 
   get '/bikes', to: 'bikes#index'
   get '/bikes/:id', to: 'bikes#show'
