@@ -47,6 +47,8 @@ describe 'Company bikes index page' do
 
   it 'lists bikes in alphabetical order' do
     visit "companies/#{@c1.id}/bikes"
+
+    click_link('Alphabetize')
     expect(@chameleon.name).to appear_before(@tallboy.name)
     expect(@chameleon.name).to appear_before(@v10.name)
     expect(@tallboy.name).to appear_before(@v10.name)
