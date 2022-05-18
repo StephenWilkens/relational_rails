@@ -40,4 +40,13 @@ describe 'Companies index page' do
     click_link('Companies')
     expect(current_path).to eq('/companies')
   end
+
+  it 'has an edit link next to each parent' do
+    visit '/companies'
+
+    within "#company-#{@c1.id}" do
+      click_link('Update this Company')
+    end
+    expect(current_path).to eq("/companies/#{@c1.id}/bikes")
+  end
 end
