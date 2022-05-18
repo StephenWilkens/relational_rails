@@ -7,7 +7,7 @@
   <% @companies.each do |company| %>
   <div id="company-<%= company.id %>">
   <li><%= company.name %> Created at:<%= company.created_at %></li>
-  <%= link_to 'Update this Company', "/companies/#{company.id}/bikes" %>
+  <%= link_to 'Update this Company', "/companies/#{company.id}/edit" %>
   </div>
   <% end %>
 </ul> 
