@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Companies show page' do
+describe 'Companies delete' do
   before :each do
     @c1 = Company.create(total_stock: 5, pro_deal: true, name: 'Santa Cruz', location: 'California')
     @c2 = Company.create(total_stock: 15, pro_deal: false, name: 'Trek', location: 'Wisconsin')
@@ -19,32 +19,12 @@ describe 'Companies show page' do
     @rip = @c3.bikes.create!(name: 'RIP', full_suspension: true, front_travel: 150)
   end
 
-  it 'shows the company with the corresponding id and its attributes' do
-
-    visit "/companies/#{@c1.id}"
-    expect(page).to have_content(@c1.name)
-    expect(page).to have_content(@c1.location)
-    expect(page).to have_content(@c1.total_stock)
-    expect(page).to have_content(@c1.pro_deal)
-    expect(page).to have_content(@c1.bikes.count)
+  describe 'it can delete a company and all associated bikes' do
+    it 'has a delete link' do
+      visit "/companies/#{@c1.id}"
+      click_button("Delete Company")
+      expect(current_path).to eq("/companies")
+      expect(page).not_to have_content("#{@c1.id}")
+    end
   end
-
-  it 'has a link to the bike index page' do
-    visit "/companies/#{@c1.id}"
-    click_link('Bikes')
-    expect(current_path).to eq('/bikes')
-  end
-
-  it 'has a link to the companies index page' do
-    visit "/companies/#{@c1.id}"
-    click_link('Companies')
-    expect(current_path).to eq('/companies')
-  end
-
-  it 'has a link to the company bikes index page' do
-    visit "/companies/#{@c1.id}"
-    click_link('Company Bikes')
-    expect(current_path).to eq("/companies/#{@c1.id}/bikes")
-  end
-
 end
