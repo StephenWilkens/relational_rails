@@ -1,5 +1,6 @@
 <%= link_to "Bikes", "/bikes" %>
 <%= link_to "Companies", "/companies" %>
+<%= link_to "Create Bike", "/companies/#{@company.id}/bikes/new" %>
 
 <h1><%= @company.name %></h1>
   <% @bikes.each do |bike| %>

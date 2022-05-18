@@ -22,7 +22,7 @@ describe 'Companies new page' do
 	it 'has a link to create a new company' do 
     visit '/companies'
     click_link('New Company')
-    expect(current_path).to eq("/companies/new")
+    expect(current_path).to eq('/companies/new')
     fill_in 'Name', with: 'Transition'
     click_on 'Create Company'
     new_company_id = Company.last.id

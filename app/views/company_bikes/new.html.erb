@@ -1,0 +1,9 @@
+<%= form_with url: "/companies/#{@company.id}/bikes", method: :post, local: true do |form| %>
+	<%= form.label :name %>
+	<%= form.text_field :name %>
+	<%= form.label :front_travel %>
+	<%= form.number_field :front_travel %>
+	<%= form.label :full_suspension %>
+	<%= form.select :full_suspension, options_for_select([false, true]), class: 'form-control' %>
+	<%= form.submit "Create Bike" %>
+<% end %>
