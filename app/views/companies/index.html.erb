@@ -4,7 +4,10 @@
 
 <h1>Companies</h1>
 <ul>
-  <% @companies.order_by_last_created.each do |company| %>
+  <% @companies.each do |company| %>
+  <div id="company-<%= company.id %>">
   <li><%= company.name %> Created at:<%= company.created_at %></li>
+  <%= link_to 'Update this Company', "/companies/#{company.id}/bikes" %>
+  </div>
   <% end %>
 </ul> 
