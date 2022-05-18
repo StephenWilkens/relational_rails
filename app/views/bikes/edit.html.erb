@@ -1,0 +1,9 @@
+<%= form_with url: "/bikes/#{@bike.id}", method: :patch, local: true do |form| %>
+	<%= form.label :name %>
+	<%= form.text_field :name %>
+	<%= form.label :front_travel %>
+	<%= form.number_field :front_travel %>
+	<%= form.label :pro_deal %>
+	<%= form.select :pro_deal, options_for_select([false, true]), class: 'form-control' %>
+	<%= form.submit "Update Bike" %>
+<% end %>
