@@ -1,5 +1,6 @@
 <%= link_to "Bikes", "/bikes" %>
 <%= link_to "Companies", "/companies" %>
+<%= link_to "Update Bike", "/bikes/#{@bike.id}/edit" %>
 
 <h1><%= @bike.name %></h1>
 <p>Full Suspension?: <%= @bike.full_suspension %></p>
