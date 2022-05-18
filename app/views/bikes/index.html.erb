@@ -3,6 +3,8 @@
 
 <ul>
   <% @bikes.each do |bike| %>
-  <li><%= bike.name %></li>
+  <% if bike.full_suspension == true %>
+    <li><%= bike.name %></li>
+      <% end %>
   <% end %>
 </ul>
