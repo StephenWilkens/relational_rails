@@ -45,4 +45,11 @@ describe 'Company bikes index page' do
     expect(current_path).to eq('/companies')
   end
 
+  it 'lists bikes in alphabetical order' do
+    visit "companies/#{@c1.id}/bikes"
+    expect(@chameleon.name).to appear_before(@tallboy.name)
+    expect(@chameleon.name).to appear_before(@v10.name)
+    expect(@tallboy.name).to appear_before(@v10.name)
+  end
+
 end
