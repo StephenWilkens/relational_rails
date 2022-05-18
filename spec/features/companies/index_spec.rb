@@ -47,6 +47,6 @@ describe 'Companies index page' do
     within "#company-#{@c1.id}" do
       click_link('Update this Company')
     end
-    expect(current_path).to eq("/companies/#{@c1.id}/bikes")
+    expect(current_path).to eq("/companies/#{@c1.id}/edit")
   end
 end
