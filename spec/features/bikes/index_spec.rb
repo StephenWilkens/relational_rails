@@ -18,17 +18,17 @@ describe 'Bikes index page' do
     @sir = @c3.bikes.create!(name: 'SIR', full_suspension: false, front_travel: 120)
     @rip = @c3.bikes.create!(name: 'RIP', full_suspension: true, front_travel: 150)
   end
-  it 'shows the name of each bike' do   
+  it 'shows the name of each bike with a true boolean' do   
     visit "/bikes"
 
-    expect(page).to have_content(@chameleon.name)
+    expect(page).not_to have_content(@chameleon.name)
     expect(page).to have_content(@v10.name)
     expect(page).to have_content(@tallboy.name)
     expect(page).to have_content(@slash.name)
-    expect(page).to have_content(@stache.name)
+    expect(page).not_to have_content(@stache.name)
     expect(page).to have_content(@fuel.name)
     expect(page).to have_content(@wfo.name)
-    expect(page).to have_content(@sir.name)
+    expect(page).not_to have_content(@sir.name)
     expect(page).to have_content(@rip.name)
   end
 
@@ -43,5 +43,4 @@ describe 'Bikes index page' do
     click_link('Companies')
     expect(current_path).to eq('/companies')
   end
-
 end
