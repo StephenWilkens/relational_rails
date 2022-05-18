@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get '/bikes/:id', to: 'bikes#show'
   get '/bikes/:id/edit', to: 'bikes#edit'
   patch 'bikes/:id', to: 'bikes#update'
+  delete '/bikes/:id', to: 'bikes#destroy'
+
 
   get '/companies/:id/bikes', to: 'company_bikes#index'
   get '/companies/:id/bikes/new', to: 'company_bikes#new'

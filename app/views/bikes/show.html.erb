@@ -5,3 +5,5 @@
 <h1><%= @bike.name %></h1>
 <p>Full Suspension?: <%= @bike.full_suspension %></p>
 <p>Front Travel: <%= @bike.front_travel %></p>
+
+<%= button_to "Delete Bike", "/bikes/#{@bike.id}", method: :delete %>
