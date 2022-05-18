@@ -43,4 +43,13 @@ describe 'Bikes index page' do
     click_link('Companies')
     expect(current_path).to eq('/companies')
   end
+
+   it 'has an edit link next to each bike' do
+    visit '/bikes'
+save_and_open_page
+    within "#bike-#{@v10.id}" do
+      click_link('Update this Bike')
+    end
+    expect(current_path).to eq("/bikes/#{@v10.id}/edit")
+  end
 end

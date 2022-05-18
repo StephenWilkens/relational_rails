@@ -3,8 +3,11 @@
 
 <ul>
   <% @bikes.each do |bike| %>
+  <div id="bike-<%= bike.id %>">
   <% if bike.full_suspension == true %>
     <li><%= bike.name %></li>
+    <%= link_to 'Update this Bike', "/bikes/#{bike.id}/edit" %>
+  </div>
       <% end %>
   <% end %>
 </ul>
